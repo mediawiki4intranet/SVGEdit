@@ -3,10 +3,7 @@ open-source SVG-edit widget:
 
   http://code.google.com/p/svg-edit/
 
-A master copy of SVG-Edit from Google Code is used, embedded in an iframe.
-
-You may wish to make your own copy of SVG-Edit, either in this subdirectory or elsewhere;
-if so set $wgSVGEditEditor to point at the 'svg-editor.html' file.
+SVG-edit 2.7-trunk (revision 2533) is included at present.
 
 Current versions of most major browsers should work except for Internet Explorer 8 and below.
 

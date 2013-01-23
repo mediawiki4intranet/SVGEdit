@@ -102,7 +102,7 @@ $wgResourceModules += array(
 //
 // By default, a master copy from Google Code is used. This may or may not be stable.
 //
-$wgSVGEditEditor = 'http://svg-edit.googlecode.com/svn/trunk/editor/svg-editor.html';
+$wgSVGEditEditor = '';
 
 // Set to enable experimental triggers for SVG editing within article views.
 // Not yet recommended.
