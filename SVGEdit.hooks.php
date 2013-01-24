@@ -29,7 +29,7 @@ class SVGEditHooks {
 				$modules[] = 'ext.svgedit.inline';
 			}
 		}
-		if ($wgRequest->getVal('action') == 'edit') {
+		if ($wgRequest->getVal('action') == 'edit' || $wgRequest->getVal('action') == 'submit') {
 			if( $wgUser->isAllowed( 'upload' ) ) {
 				$modules[] = 'ext.svgedit.toolbar';
 			}
