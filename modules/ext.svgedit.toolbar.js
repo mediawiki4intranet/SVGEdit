@@ -7,7 +7,7 @@ jQuery( document ).ready( function( $ ) {
 
 	var safeFilename = function(str) {
 		// hack hack
-		return str.replace(/[^A-Za-z0-9\- ]/, '').replace(/[\s_]+/, ' ');
+		return str.replace(/[:\\\/]+/g, '').replace(/[\s_]+/g, ' ');
 	};
 	var handyDate = function() {
 		var now = new Date();
@@ -31,23 +31,26 @@ jQuery( document ).ready( function( $ ) {
 			pad2(now.getUTCSeconds());
 	};
 	var callback = function(context) {
-		var filename = safeFilename(wgTitle) + ' drawing ' + handyDate() + '.svg';
-		var form = context.$ui.closest('form');
-		mediaWiki.svgedit.open({
-			filename: filename,
-			replace: form[0],
-			onclose: function(filename) {
-				if (filename) {
-					// Saved! Insert a [[File:foo]]
-					context.$textarea.textSelection('encapsulateSelection', {
-						'pre': '[[File:',
-						'peri': filename,
-						'post': ']]',
-						'replace': true
-					});
+		var filename = safeFilename(wgTitle) + ' drawing ' + handyDate();
+		if (filename = prompt(mediaWiki.msg('svgedit-editor-new-filename'), filename)) {
+			filename = safeFilename(filename + '.svg');
+			var form = context.$ui.closest('form');
+			mediaWiki.svgedit.open({
+				filename: filename,
+				replace: form[0],
+				onclose: function(filename) {
+					if (filename) {
+						// Saved! Insert a [[File:foo]]
+						context.$textarea.textSelection('encapsulateSelection', {
+							'pre': '[[File:',
+							'peri': filename,
+							'post': ']]',
+							'replace': true
+						});
+					}
 				}
-			}
-		});
+			});
+		}
 	};
 	$( '#wpTextbox1' ).wikiEditor( 'addToToolbar', {
 		'section': 'advanced',

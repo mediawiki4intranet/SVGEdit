@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'svgedit-toolbar-insert' => 'SVG drawing',
 	'svgedit-editbutton-create' => 'Create image with SVGEdit',
 	'svgedit-suggest-create' => '<div style="display: inline-block; border: 1px dashed blue; padding: 4px; background: #f8f8ff">Also, you can <a href="$1">create/edit this SVG file with SVGEdit</a>.</div>',
+	'svgedit-editor-new-filename' => 'Enter file name: ',
 );
 
 /** Message documentation (Message documentation)
@@ -766,6 +767,7 @@ $messages['ru'] = array(
 	'svgedit-toolbar-insert' => 'Рисование SVG',
 	'svgedit-editbutton-create' => 'Создать рисунок в SVGEdit',
 	'svgedit-suggest-create' => '<div style="display: inline-block; border: 1px dashed blue; padding: 4px; background: #f8f8ff">Также вы можете <a href="$1">создать/изменить этот SVG-файл с помощью SVGEdit</a>.</div>',
+	'svgedit-editor-new-filename' => 'Введите имя файла: ',
 );
 
 /** Sinhala (සිංහල)
