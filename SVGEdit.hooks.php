@@ -30,7 +30,7 @@ class SVGEditHooks {
 			}
 		}
 		if ($wgRequest->getVal('action') == 'edit' || $wgRequest->getVal('action') == 'submit') {
-			if( $wgUser->isAllowed( 'upload' ) ) {
+			if( $wgUser->isAllowed( 'upload' ) && $wgUser->getOption( 'usebetatoolbar' ) ) {
 				$modules[] = 'ext.svgedit.toolbar';
 			}
 		}

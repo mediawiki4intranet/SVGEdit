@@ -92,6 +92,7 @@ $wgResourceModules += array(
 			'svgedit-toolbar-insert',
 		),
 		'dependencies' => array(
+			'ext.wikiEditor.toolbar',
 			'ext.svgedit.editor'
 		)
 	),
