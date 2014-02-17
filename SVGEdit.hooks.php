@@ -8,6 +8,18 @@ class SVGEditHooks {
 	/* Static Methods */
 
 	/**
+	 * WikiEditorAddModules hook handler
+	 */
+	public static function addButtonModule() {
+		global $wgOut, $wgUser;
+		if ( in_array( 'ext.wikiEditor.toolbar', $wgOut->getModules() ) &&
+			 $wgUser->isAllowed( 'upload' ) ) {
+			$wgOut->addModules( array( 'ext.svgedit.toolbar' ) );
+		}
+		return true;
+	}
+
+	/**
 	 * BeforePageDisplay hook
 	 *
 	 * Adds the modules to the page

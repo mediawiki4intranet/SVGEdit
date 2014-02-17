@@ -23,6 +23,7 @@ $wgExtensionMessagesFiles['SVGEdit'] =  dirname(__FILE__) . '/SVGEdit.i18n.php';
 $wgHooks['BeforePageDisplay'][] = 'SVGEditHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'SVGEditHooks::makeGlobalVariablesScript';
 $wgHooks['UploadForm:initial'][] = 'SVGEditHooks::uploadFormInitial';
+$wgHooks['WikiEditorAddModules'][] = 'SVGEditHooks::addButtonModule';
 
 $wgAutoloadClasses['SVGEditHooks'] = dirname( __FILE__ ) . '/SVGEdit.hooks.php';
 

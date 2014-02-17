@@ -3,7 +3,13 @@
  * and open the template in the editor.
  */
 
-jQuery( document ).ready( function( $ ) {
+var weAddHook = $.wikiEditor.addHook;
+if ( !weAddHook ) {
+	// Be compatible with unmodified WikiEditor
+	weAddHook = function(cb) { $(document).ready(function() { $('#wpTextbox1').each(cb); }); };
+}
+
+weAddHook( function() {
 
 	var safeFilename = function(str) {
 		// hack hack
@@ -52,7 +58,7 @@ jQuery( document ).ready( function( $ ) {
 			});
 		}
 	};
-	$( '#wpTextbox1' ).wikiEditor( 'addToToolbar', {
+	$( this ).wikiEditor( 'addToToolbar', {
 		'section': 'advanced',
 		'group': 'insert',
 		'tools': {
