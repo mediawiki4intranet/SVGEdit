@@ -15,14 +15,14 @@ $(document).ready(function() {
 		return;
 	}
 
-	if (wgCanonicalNamespace === 'File' &&
-		wgAction === 'view' &&
-		wgTitle.match(/\.svg$/i)) {
+	if (mw.config.get('wgCanonicalNamespace') === 'File' &&
+		mw.config.get('wgAction') === 'view' &&
+		mw.config.get('wgTitle').match(/\.svg$/i)) {
 
 		var trigger = function() {
 			mw.svgedit.open({
-				filename: wgTitle,
-				replace: (wgArticleId ? '#file' : '#mw-imagepage-nofile'),
+				filename: mw.config.get('wgTitle'),
+				replace: (mw.config.get('wgArticleId') ? '#file' : '#mw-imagepage-nofile'),
 				onclose: function(filename) {
 					if (filename) {
 						// Saved! Refresh parent window...
@@ -48,7 +48,7 @@ $(document).ready(function() {
 		});
 
 		var button = $('<button></button>')
-			.text(mw.msg(wgArticleId ? 'svgedit-editbutton-edit' : 'svgedit-editbutton-create'))
+			.text(mw.msg(mw.config.get('wgArticleId') ? 'svgedit-editbutton-edit' : 'svgedit-editbutton-create'))
 			.click(function() {
 				trigger();
 			});

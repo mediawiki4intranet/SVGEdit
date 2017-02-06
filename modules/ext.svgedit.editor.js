@@ -42,8 +42,8 @@ mw.svgedit = {
 	 * @access private
 	 */
 	openEditor: function(options, imageinfo) {
-		var url = wgSVGEditEditor ||
-			(wgScriptPath + '/extensions/SVGEdit/svg-edit/svg-editor.html');
+		var url = mw.config.get('wgSVGEditEditor') ||
+			(mw.config.get('wgScriptPath') + '/extensions/SVGEdit/svg-edit/svg-editor.html');
 
 		var filename = options.filename || null;
 		var replace = options.replace || null;

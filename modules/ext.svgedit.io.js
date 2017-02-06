@@ -13,7 +13,7 @@ var mwSVG = window.mwSVG = {
 	 * @return string URL to MediaWiki API.
 	 */
 	api: function() {
-		return wgScriptPath + '/api' + wgScriptExtension;
+		return mw.config.get('wgScriptPath') + '/api' + mw.config.get('wgScriptExtension');
 	},
 
 	/**

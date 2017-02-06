@@ -37,7 +37,7 @@ weAddHook( function() {
 			pad2(now.getUTCSeconds());
 	};
 	var callback = function(context) {
-		var filename = safeFilename(wgTitle) + ' drawing ' + handyDate();
+		var filename = safeFilename(mw.config.get('wgTitle')) + ' drawing ' + handyDate();
 		if (filename = prompt(mediaWiki.msg('svgedit-editor-new-filename'), filename)) {
 			filename = safeFilename(filename + '.svg');
 			var form = context.$ui.closest('form');
