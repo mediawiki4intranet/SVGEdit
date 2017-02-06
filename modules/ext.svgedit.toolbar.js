@@ -65,7 +65,7 @@ weAddHook( function() {
 			'newsvg': {
 				'labelMsg': 'svgedit-toolbar-insert',
 				'type': 'button',
-				'icon': wgExtensionAssetsPath + '/SVGEdit/modules/images/svgedit-toolbar-icon.png',
+				'icon': mw.config.get( 'wgExtensionAssetsPath' ) + '/SVGEdit/modules/images/svgedit-toolbar-icon.png',
 				'action': {
 					/*
 					'type': 'encapsulate',
