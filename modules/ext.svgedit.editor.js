@@ -138,10 +138,14 @@ mw.svgedit = {
 		$('#mw-svgedit-save')
 			.text(mediaWiki.msg('svgedit-editor-save-close'))
 			.click(function() {
+                debugger;
 				spinnerOn();
+                debugger;
 				svgedit.getSvgString()(function(svg) {
+					debugger;
 					var comment = $('#mw-svgedit-summary').val();
 					mwSVG.saveSVG(filename, svg, comment, function(data) {
+		                debugger;
 						if (data.upload && data.upload.result === 'Success') {
 							saved = true;
 							closeEditor();

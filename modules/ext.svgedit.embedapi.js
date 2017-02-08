@@ -58,10 +58,12 @@ blah.clearSelection("woot","blah",1337,[1,2,3,4,5,"moo"],-42,{a: "tree",b:6, c: 
 
 function embedded_svg_edit(frame){
   //initialize communication
+  debugger;
   this.frame = frame;
   //this.stack = [] //callback stack
   this.callbacks = {}; //successor to stack
   this.encode = embedded_svg_edit.encode;
+  debugger;
   //List of functions extracted with this:
   //Run in firebug on http://svg-edit.googlecode.com/svn/trunk/docs/files/svgcanvas-js.html
 
@@ -73,11 +75,13 @@ function embedded_svg_edit(frame){
   //var l=[];for(var i in svgCanvas){if(typeof svgCanvas[i] == "function"){l.push(i)}};
   //run in svgedit itself
   var functions = ['updateElementFromJson', 'embedImage', 'fixOperaXML', 'clearSelection', 'addToSelection', 'removeFromSelection', 'addNodeToSelection', 'open', 'save', 'getSvgString', 'setSvgString', 'createLayer', 'deleteCurrentLayer', 'getNumLayers', 'getLayer', 'getCurrentLayer', 'setCurrentLayer', 'renameCurrentLayer', 'setCurrentLayerPosition', 'getLayerVisibility', 'setLayerVisibility', 'moveSelectedToLayer', 'getLayerOpacity', 'setLayerOpacity', 'clear', 'clearPath', 'getNodePoint', 'clonePathNode', 'deletePathNode', 'getResolution', 'getImageTitle', 'setImageTitle', 'setResolution', 'setBBoxZoom', 'setZoom', 'getMode', 'setMode', 'getStrokeColor', 'setStrokeColor', 'getFillColor', 'setFillColor', 'setStrokePaint', 'setFillPaint', 'getStrokeWidth', 'setStrokeWidth', 'getStrokeStyle', 'setStrokeStyle', 'getOpacity', 'setOpacity', 'getFillOpacity', 'setFillOpacity', 'getStrokeOpacity', 'setStrokeOpacity', 'getTransformList', 'getBBox', 'getRotationAngle', 'setRotationAngle', 'each', 'bind', 'setIdPrefix', 'getBold', 'setBold', 'getItalic', 'setItalic', 'getFontFamily', 'setFontFamily', 'getFontSize', 'setFontSize', 'getText', 'setTextContent', 'setImageURL', 'setRectRadius', 'setSegType', 'quickClone', 'beginUndoableChange', 'changeSelectedAttributeNoUndo', 'finishUndoableChange', 'changeSelectedAttribute', 'deleteSelectedElements', 'groupSelectedElements', 'ungroupSelectedElement', 'moveToTopSelectedElement', 'moveToBottomSelectedElement', 'moveSelectedElements', 'getStrokedBBox', 'getVisibleElements', 'cycleElement', 'getUndoStackSize', 'getRedoStackSize', 'getNextUndoCommandText', 'getNextRedoCommandText', 'undo', 'redo', 'cloneSelectedElements', 'alignSelectedElements', 'getZoom', 'getVersion', 'setIconSize', 'setLang', 'setCustomHandlers'];
+  debugger;
 
   //TODO: rewrite the following, it's pretty scary.
   for(var i = 0; i < functions.length; i++){
     this[functions[i]] = (function(d){
       return function(){
+        debugger;
         var t = this; //new callback
         for(var g = 0, args = []; g < arguments.length; g++){
           args.push(arguments[g]);
@@ -92,10 +96,12 @@ function embedded_svg_edit(frame){
   }
   //TODO: use AddEvent for Trident browsers, currently they dont support SVG, but they do support onmessage
   var t = this;
+  debugger;
   window.addEventListener('message', function(e){
     if(e.data.substr(0,4)==='SVGe'){ //because svg-edit is too longish
       var data = e.data.substr(4);
       var cbid = data.substr(0, data.indexOf(';'));
+      debugger;
       if(t.callbacks[cbid]){
         if(data.substr(0,6) !== 'error:'){
           t.callbacks[cbid](eval('('+data.substr(cbid.length+1)+')'));
