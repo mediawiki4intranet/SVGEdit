@@ -59,8 +59,8 @@ svgEditor.setConfig({
 	// canvasName: 'default',
 	// canvas_expansion: 3,
 	initFill: {
-		 color: 'FF0000', // solid red
-		 opacity: 1
+		 color: '0000FF', // solid red
+		 opacity: 0
 	 },
 	 initStroke: {
 		 width: 5,
@@ -87,9 +87,9 @@ svgEditor.setConfig({
 	*/
 	 allowedOrigins: [window.location.origin || 'null'], // May be 'null' (as a string) when used as a file:// URL
 	// DOCUMENT PROPERTIES
-	// dimensions: [640, 480],
+	dimensions: [800, 600],
 	// EDITOR OPTIONS
-	// gridSnapping: false,
+	gridSnapping: true,
 	// gridColor: '#000',
 	// baseUnit: 'px',
 	// snappingStep: 10,
